@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>hogtie example</title>
+  <script type="text/javascript" src="../lib/jquery-1.4.1.js"></script>
+  <script type="text/javascript" src="../lib/jquery.hogtie.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+  $(function() {
+    var featuredCheckbox = $("#post_featured");
+    featuredCheckbox.hogtie({"#post_state_event": "draft"}, function(disabled) {
+      if (disabled) {
+        featuredCheckbox.attr("checked", !disabled);
+      }
+    });
+  });
+
+</script>
+<form>
+  <input type="checkbox" value="1" name="post[featured]" id="post_featured">
+  <select name="post[state_event]" id="post_state_event">
+    <option  selected="selected" value="draft">draft</option>
+    <option value="publish">published</option>
+  </select>
+</form>
+</body>
+
+</html>
